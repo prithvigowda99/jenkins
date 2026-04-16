@@ -1,1 +1,31 @@
-this to check the snippet in jenkins
+pipeline {
+    agent any
+    
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World!'
+                sh 'echo "Build Number: ${BUILD_NUMBER}"'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'echo "Building app..."'
+                sh 'date'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh 'echo "All tests PASSED!"'
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deployed to production!"'
+            }
+        }
+    }
+}
